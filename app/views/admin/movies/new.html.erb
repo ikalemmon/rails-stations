@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>App</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+<h1>Admin::Movies#new</h1>                                         
+<p>Find me in app/views/admin/movies/new.html.erb</p>    
+
+<%= form_with model: @movies , url: admin_movies_path do |form| %>
+    <p>タイトル</p>
+  <%= form.text_field  :name%>
+  <p>公開年</p>
+  <%= form.text_field  :year%>
+  <p>概要</p>
+  <%= form.text_field  :description%>
+  <p>画像URL</p>
+  <%= form.text_field  :image_url%>
+  <p>上映中</p>
+  <%= form.check_box  :is_showing%>
+  <%= form.submit %>
+
+<% end %>
+
+
+</body>
+</html><%#
