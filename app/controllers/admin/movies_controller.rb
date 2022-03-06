@@ -2,6 +2,15 @@ class Admin::MoviesController < ApplicationController
     def index
         @movies = Movie.all
     end
+    def search
+        @search_params = movie_search_params
+        if @search_params.blank? then 
+          @movies = Movie.all
+        else
+          @movies = Movie.search(@search_params)
+        end
+        render "index"
+    end
     # GET /admin/movies/new
     def new
         @movie = Movie.new
@@ -63,6 +72,9 @@ class Admin::MoviesController < ApplicationController
     private 
     def movie_params
         params.require(:movie).permit(:name,:year,:is_showing,:description,:image_url)
+    end
+    def movie_search_params
+        params.fetch(:movie, {}).permit(:keyword, :is_showing)
     end
 
 end
