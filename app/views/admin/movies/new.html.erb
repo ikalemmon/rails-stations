@@ -8,7 +8,7 @@
 <h1>Admin::Movies#new</h1>                                         
 <p>Find me in app/views/admin/movies/new.html.erb</p>    
 
-<%= form_with model: @movies , url: admin_movies_path do |form| %>
+<%= form_with model:@movie, url:admin_movies_path  do |form| %>
     <p>タイトル</p>
   <%= form.text_field  :name%>
   <p>公開年</p>
@@ -25,4 +25,4 @@
 
 
 </body>
-</html><%#
+</html>
