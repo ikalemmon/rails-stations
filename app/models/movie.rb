@@ -6,7 +6,7 @@ class Movie < ApplicationRecord
 
     def self.search(search_params)
         #@selected_movies=where(["name like? OR description like?", "%#{keyword}%", "%#{keyword}%"])
-        @movies = Movie.where( 'is_showing LIKE ?', "%#{search_params[:is_showing]}%" )
-        @movies.where( 'name LIKE OR description like??', "%#{ search_params[:keyword] }%" )
+        @movies = Movie.where( 'is_showing like ?', "%#{search_params[:is_showing]}%" )
+        @movies.where('name like ?',"%#{ search_params[:keyword] }%").or(@movies.where('description like ?', "%#{ search_params[:keyword] }%"))
     end
 end
