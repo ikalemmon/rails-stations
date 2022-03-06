@@ -21,4 +21,6 @@
   <%= form.check_box  :is_showing, checked: @movie.is_showing%>
   <%= form.submit %>
 
+  <%= link_to "削除","movies/#{@movie.id}", method: :delete, data: { confirm: "【確認】この映画情報を削除してもよろしいですか？" }%>
+
 <% end %>

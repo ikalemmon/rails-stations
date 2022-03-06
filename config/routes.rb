@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/movies/new', to:'movies#new'
     post '/movies', to:'movies#create'##以上、station3まで
     get '/movies/:id',  to:'movies#edit' ,as:'movies_edit'
-    put '/movies/:id', to: 'movies#update' ,as: 'movies_update'
+    put '/movies/:id', to: 'movies#update' ,as: 'movies_update'##station4
+    delete '/movies/:id',to: 'movies#destroy'
   end
 end
